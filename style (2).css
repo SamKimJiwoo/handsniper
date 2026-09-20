@@ -1,0 +1,227 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #05050a;
+    font-family: 'Share Tech Mono', 'Courier New', monospace, sans-serif;
+    user-select: none;
+}
+
+#lobby-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #05050a 0%, #120826 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    color: #00ffff;
+}
+
+.lobby-card {
+    background: rgba(10, 10, 20, 0.9);
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2), inset 0 0 15px rgba(255, 0, 127, 0.1);
+    text-align: center;
+    width: 380px;
+    border: 1px solid #00ffff;
+    position: relative;
+}
+
+.lobby-card::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(45deg, #00ffff, #ff007f);
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(4px);
+}
+
+.lobby-card h1 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+.lobby-input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 16px;
+    background: #0b0b16;
+    border: 1px solid #ff007f;
+    border-radius: 2px;
+    color: #00ffff;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: inset 0 0 8px rgba(255, 0, 127, 0.3);
+}
+
+.lobby-input:focus {
+    border-color: #00ffff;
+    box-shadow: 0 0 10px #00ffff, inset 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+.lobby-btn {
+    width: 100%;
+    padding: 14px;
+    background: #ff007f;
+    border: none;
+    border-radius: 2px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
+}
+
+.lobby-btn:hover {
+    background: #00ffff;
+    color: #05050a;
+    box-shadow: 0 0 20px #00ffff;
+}
+
+/* 🎯 크로스헤어 스타일 */
+#crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 5;
+    display: none;
+}
+
+#ui-info {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    color: #00ffff;
+    background: rgba(10, 10, 20, 0.85);
+    padding: 14px 18px;
+    border-radius: 2px;
+    font-size: 13px;
+    z-index: 5;
+    display: none;
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    line-height: 1.6;
+}
+
+#scoreboard {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    color: #00ffff;
+    background: rgba(10, 10, 20, 0.85);
+    padding: 18px;
+    border-radius: 2px;
+    font-size: 13px;
+    z-index: 5;
+    display: none;
+    width: 220px;
+    border: 1px solid #ff007f;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+}
+
+/* 사이버펑크 메뉴 오버레이 */
+.menu-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 10, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    backdrop-filter: blur(5px);
+}
+
+.menu-box {
+    background: rgba(10, 10, 20, 0.95);
+    padding: 35px;
+    border-radius: 4px;
+    width: 340px;
+    color: #00ffff;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+    border: 1px solid #00ffff;
+    text-align: center;
+}
+
+.menu-box h2 {
+    margin-top: 0;
+    color: #ff007f;
+    margin-bottom: 25px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #ff007f;
+}
+
+.menu-btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    background: #120826;
+    border: 1px solid #00ffff;
+    border-radius: 2px;
+    color: #00ffff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.menu-btn:hover {
+    background: #00ffff;
+    color: #05050a;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+.menu-btn.danger {
+    border-color: #ff007f;
+    color: #ff007f;
+}
+.menu-btn.danger:hover {
+    background: #ff007f;
+    color: #ffffff;
+    box-shadow: 0 0 15px #ff007f;
+}
+
+.setting-item {
+    margin-bottom: 18px;
+    text-align: left;
+    font-size: 13px;
+}
+
+.setting-item label {
+    display: block;
+    margin-bottom: 6px;
+    color: #ff007f;
+}
+
+.setting-item input[type="range"], .setting-item select {
+    width: 100%;
+    cursor: pointer;
+    background: #0b0b16;
+    border: 1px solid #00ffff;
+    color: #00ffff;
+    padding: 8px;
+    border-radius: 2px;
+    outline: none;
+    box-sizing: border-box;
+}
